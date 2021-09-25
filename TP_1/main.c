@@ -1,8 +1,7 @@
 /*
  * main.c
  *
- *  Created on: 24 sep. 2021
- *      Author: linux
+ *      Autor: Gabriel Remon
  */
 
 #include <stdio.h>
@@ -22,7 +21,8 @@ int main(void)
     float numeroIngreso2;
     int seguir=1;
 
-    float operaciones[6];
+    float operaciones[4];
+    int factorial[2];
     int flag[4]= {NO_PASO,NO_PASO,NO_PASO,NO_PASO};
 
     do
@@ -38,11 +38,11 @@ int main(void)
             break;
 
         case 3:
-            calculos(numeroIngreso1,numeroIngreso2,flag,operaciones);
+            calculos(numeroIngreso1,numeroIngreso2,flag,operaciones, factorial);
             break;
 
         case 4:
-            resultados(flag,operaciones);
+            resultados(flag,operaciones,factorial);
             break;
 
         case 5:

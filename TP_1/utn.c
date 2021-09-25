@@ -1,8 +1,7 @@
 /*
  * utn.c
  *
- *  Created on: 24 sep. 2021
- *      Author: linux
+ *      Autor: Gabriel Remon
  */
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,8 +1,7 @@
 /*
  * tp1.h
  *
- *  Created on: 24 sep. 2021
- *      Author: linux
+ *      Autor: Gabriel Remon
  */
 
 #ifndef TP1_H_
@@ -27,7 +26,7 @@ void ingresoNumero(float* pIngreso, char* pMensaje, int* pFlagNum, int *flapOper
  *pflaOperacion= Se ingresa el puntero de un flag que se pondra en 0 si es que este y el valor en el puntero pflagNum es 1
  */
 
-void calculos(float num1, float num2,int vectorFlag[], float vectorResultado[]);
+void calculos(float num1, float num2,int vectorFlag[], float vectorResultado[],int factorial[]);
 /*
  * Esta funcion pide el ingreso de dos numeros y de un vector con distintas banderas que indican que se cargaron los numeros
  * luego realiza las operaciones y guarda los resultados en vectorResultado
@@ -45,7 +44,7 @@ void calculos(float num1, float num2,int vectorFlag[], float vectorResultado[]);
  * carga en vectorFlag[4] un -1 si el num2 no esta entre 0 y 34 para indicar que no se puede factorear ese numero
 */
 
-void resultados(int vFlag[], float vOperaciones[]);
+void resultados(int vFlag[], float vOperaciones[],int factorial[]);
 /*
  * Imprime todos los valores del vector cOperaciones solo si todos los valores de Vflag son 1
  */

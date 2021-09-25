@@ -1,8 +1,7 @@
 /*
  * utn.h
  *
- *  Created on: 24 sep. 2021
- *      Author: linux
+ *      Autor: Gabriel Remon
  */
 
 #ifndef UTN_H_

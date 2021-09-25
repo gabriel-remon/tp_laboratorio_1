@@ -1,8 +1,7 @@
 /*
  * tp1.c
  *
- *  Created on: 24 sep. 2021
- *      Author: linux
+ *      Autor: Gabriel Remon
  */
 
 #include <stdio.h>
@@ -15,8 +14,8 @@
 #define RESTA 1
 #define MULTIPLICACION 2
 #define DIVISION 3
-#define FACTORIAL_1 4
-#define FACTORIAL_2 5
+#define FACTORIAL_1 0
+#define FACTORIAL_2 1
 #define FLAG_NUM_1 0
 #define FLAG_NUM_2 1
 #define FLAG_OPERASION 2
@@ -65,10 +64,12 @@ void ingresoNumero(float* pIngreso, char* pMensaje, int* pFlagNum, int *flapOper
     }
 }
 
-void calculos(float num1, float num2,int vectorFlag[], float vectorResultado[])
+void calculos(float num1, float num2,int vectorFlag[], float vectorResultado[],int factorial[])
 {
     int noDivision;
-    if(vectorFlag!=NULL && vectorResultado!=NULL)
+    int intNum1=num1;
+    int intNum2=num2;
+    if(vectorFlag!=NULL && vectorResultado!=NULL && factorial!=NULL)
     {
         if (vectorFlag[FLAG_NUM_1]==PASO && vectorFlag[FLAG_NUM_2]==PASO)
         {
@@ -76,22 +77,22 @@ void calculos(float num1, float num2,int vectorFlag[], float vectorResultado[])
             utn_operador('-',&vectorResultado[RESTA], num1, num2);
             utn_operador('*',&vectorResultado[MULTIPLICACION], num1, num2);
             noDivision = utn_operador('/',&vectorResultado[DIVISION],num1,num2);
-            if(num1>0 && num1<34)
+            if(num1>0 && num1<34 && num1==intNum1)
             {
-            	vectorResultado[FACTORIAL_1]=utn_factorial(num1);
+            	factorial[FACTORIAL_1]=utn_factorial(num1);
             }
             else
             {
-            	vectorResultado[FACTORIAL_1]=-1;
+            	factorial[FACTORIAL_1]=-1;
             }
 
-            if(num2>0 && num2<34)
+            if(num2>0 && num2<34 && num2==intNum2)
             {
-            	vectorResultado[FACTORIAL_2]=utn_factorial(num2);
+            	factorial[FACTORIAL_2]=utn_factorial(num2);
             }
             else
             {
-            	 vectorResultado[FACTORIAL_2]=-1;
+            	factorial[FACTORIAL_2]=-1;
             }
 
             printf("Operaciones realizadas");
@@ -107,9 +108,9 @@ void calculos(float num1, float num2,int vectorFlag[], float vectorResultado[])
     utn_clear();
 }
 
-void resultados(int vFlag[], float vOperaciones[])
+void resultados(int vFlag[], float vOperaciones[],int factorial[])
 {
-    if(vFlag!=NULL && vOperaciones!=NULL)
+    if(vFlag!=NULL && vOperaciones!=NULL&& factorial!=NULL)
     {
         if(vFlag[FLAG_NUM_1]==PASO && vFlag[FLAG_NUM_2]==PASO)
         {
@@ -126,22 +127,22 @@ void resultados(int vFlag[], float vOperaciones[])
                 {
                     printf("El resultado de A/B es: %.2f\n", vOperaciones[DIVISION]);
                 }
-                if(vOperaciones[FACTORIAL_1]==-1)
+                if(factorial[FACTORIAL_1]==-1)
                 {
                     printf("No se puede factoriar este numero\n");
                 }
                 else
                 {
-                    printf("El factorial de A es: %.f\n",vOperaciones[FACTORIAL_1]);
+                    printf("El factorial de A es: %d\n",factorial[FACTORIAL_1]);
                 }
 
-                if(vOperaciones[FACTORIAL_2]==-1)
+                if(factorial[FACTORIAL_2]==-1)
                 {
                     printf("No se puede factoriar este numero");
                 }
                 else
                 {
-                    printf("El factorial de B es: %.f\n",vOperaciones[FACTORIAL_2]);
+                    printf("El factorial de B es: %d\n",factorial[FACTORIAL_2]);
                 }
             }
             else
