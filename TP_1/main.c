@@ -16,6 +16,8 @@
 
 int main(void)
 {
+	setbuf(stdout, NULL);
+
     float numeroIngreso1;
     float numeroIngreso2;
     int seguir=1;
@@ -51,7 +53,7 @@ int main(void)
     }
     while(seguir);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 
