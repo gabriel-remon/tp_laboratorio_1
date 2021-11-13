@@ -5,6 +5,12 @@
 #include "Employee.h"
 #include "utn.h"
 
+/** \brief Reserva espacio en memoria dinamica para un elemento Employee
+ *
+ * \param Employee*
+ *
+ */
+
 Employee* employee_new()
 {
     Employee* empleadoAux=NULL;
@@ -14,6 +20,17 @@ Employee* employee_new()
     return empleadoAux;
 }
 
+/** \brief Recive todos los parametros de la estructura Employee como char, los combierte a
+ * 		   su tipo de dato correspondiente, luego reserva lugar en memoria dinamica y los guarda
+ *
+ * \param idStr char*
+ * \param idStr char*
+ * \param idStr char*
+ * \param idStr char*
+ *
+ * \return Employee*
+ *
+ */
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr)
 {
     Employee* nuevoEmpleado=NULL;
@@ -45,6 +62,11 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     return nuevoEmpleado;
 }
 
+/** \brief Libera la memoria reservada del puntero this
+ *
+ * \param this Employee*
+ *
+ */
 void employee_delete(Employee* this)
 {
     if(this!=NULL)
@@ -53,6 +75,14 @@ void employee_delete(Employee* this)
     }
 }
 
+/** \brief busca en linkedList si un elemento coincide con el id pasado como parametro
+ *
+ * \param lista LinkedList*
+ * \param id int
+ *
+ * return int
+ *
+ */
 int employee_validarId(LinkedList* lista, int id)
 {
     int retorno=-1;
@@ -82,6 +112,14 @@ int employee_validarId(LinkedList* lista, int id)
     return retorno;
 }
 
+/** \brief Guarda id en puntero this.id
+ *
+ * \param this Employee*
+ * \param id int
+ *
+ * return int
+ *
+ */
 int employee_setId(Employee* this,int id)
 {
     int retorno=0;
@@ -95,6 +133,14 @@ int employee_setId(Employee* this,int id)
     return retorno;
 }
 
+/** \brief Carga en el valor *id en this.id
+ *
+ * \param this Employee*
+ * \param id int*
+ *
+ * return int
+ *
+ */
 int employee_getId(Employee* this,int* id)
 {
     int retorno=0;
@@ -107,13 +153,27 @@ int employee_getId(Employee* this,int* id)
 
     return retorno;
 }
-
+/** \brief copia el string nombre en this.nombre
+ *
+ * \param this Employee*
+ * \param nombre char*
+ *
+ * return int
+ *
+ */
 int employee_setNombre(Employee* this,char* nombre)
 {
     int retorno=0;
 
     if(this!=NULL && nombre!=NULL )
     {
+    	for(int i=0; (*(nombre+i))!='\0' ;i++)
+    	{
+    		if(*(nombre+i)=='-')
+    		{
+    			*(nombre+i)=32;
+    		}
+    	}
         strcpy(this->nombre,nombre);
         retorno=1;
     }
@@ -121,6 +181,14 @@ int employee_setNombre(Employee* this,char* nombre)
     return retorno;
 }
 
+/** \brief Copia el string de this.nombre hacia nombre
+ *
+ * \param this Employee*
+ * \param nombre char*
+ *
+ * return int
+ *
+ */
 int employee_getNombre(Employee* this,char* nombre)
 {
     int retorno=0;
@@ -134,6 +202,14 @@ int employee_getNombre(Employee* this,char* nombre)
     return retorno;
 }
 
+/** \brief Carga carga la bariable horasTrabajadas en this.horasTrabajadas
+ *
+ * \param this Employee*
+ * \param horasTrabajadas int*
+ *
+ * return int
+ *
+ */
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 {
     int retorno=0;
@@ -147,6 +223,14 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
     return retorno;
 }
 
+/** \brief Carga en *horasTrabajadas el valor en this.horasTrabajadas
+ *
+ * \param this Employee*
+ * \param horasTrabajadas int*
+ *
+ * return int
+ *
+ */
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
     int retorno=0;
@@ -159,7 +243,14 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 
     return retorno;
 }
-
+/** \brief Carga la variable sueldo en this.sueldo
+ *
+ * \param this Employee*
+ * \param sueldo int
+ *
+ * return int
+ *
+ */
 int employee_setSueldo(Employee* this,int sueldo)
 {
     int retorno=0;
@@ -173,6 +264,14 @@ int employee_setSueldo(Employee* this,int sueldo)
     return retorno;
 }
 
+/** \brief Carga en el valor de *sueldo el dato en this.sueldo
+ *
+ * \param this Employee*
+ * \param sueldo int*
+ *
+ * return int
+ *
+ */
 int employee_getSueldo(Employee* this,int* sueldo)
 {
     int retorno=0;
@@ -186,7 +285,11 @@ int employee_getSueldo(Employee* this,int* sueldo)
     return retorno;
 }
 
-
+/** \brief Muestra los valores dentro de this en forma de columna
+ *
+ * \param this Employee*
+ *
+ */
 void employee_printUno(Employee* this)
 {
     int id;
@@ -209,24 +312,13 @@ void employee_printUno(Employee* this)
     }
 }
 
-int modificacion()
-{
-    int retorno;
-
-    printf("\n\n-----------------MODIFICAR EMPLEADOS---------------\n\n");
-
-    printf("1- MODIFICAR NOMBRE Y APELLIDO\n");
-    printf("2- MODIFICAR HORAS TRABAJADAS\n");
-    printf("3- MODIFICAR SUELDO\n\n");
-
-    printf("4-SALIR\n\n");
-
-    utn_minMaxInt(&retorno,"\nIngrese la opcion deseada: ", "Error, ingrese un numero entre el 1 y el 4",1,4);
-    utn_clear();
-    return retorno;
-}
-
-
+/** \brief Pide al usuario nombre y apellido, los valida y guarda en this.nombre
+ *
+ * \param this Employee*
+ *
+ * return int
+ *
+ */
 int employee_ingresoNombre(Employee* this)
 {
     int retorno=0;
@@ -252,6 +344,14 @@ int employee_ingresoNombre(Employee* this)
 
     return retorno;
 }
+
+/** \brief Pide al usuario horas trabajadas, los valida y guarda en this.horasTrabajadas
+ *
+ * \param this Employee*
+ *
+ * return int
+ *
+ */
 int employee_ingresoHorasTrabajadas(Employee* this)
 {
     int retorno=0;
@@ -267,6 +367,14 @@ int employee_ingresoHorasTrabajadas(Employee* this)
 
     return retorno;
 }
+
+/** \brief Pide al usuario sueldo, valida y guarda en horas trabajadas
+ *
+ * \param this Employee*
+ *
+ * return int
+ *
+ */
 int employee_ingresoSueldo(Employee* this)
 {
     int retorno=0;
@@ -282,6 +390,14 @@ int employee_ingresoSueldo(Employee* this)
     return retorno;
 }
 
+/** \brief compara los valores Employee.id en los dos punteros
+ *
+ * \param primerParametro Employee*
+ * \param segundoParametro Employee*
+ *
+ * return int
+ *
+ */
 int employee_ordenarId(void* primerParametro,void* segundoParametro)
 {
     int retorno=0;
@@ -311,6 +427,15 @@ int employee_ordenarId(void* primerParametro,void* segundoParametro)
     }
     return retorno;
 }
+
+/** \brief compara los valores Employee.nombre en los dos punteros
+ *
+ * \param primerParametro Employee*
+ * \param segundoParametro Employee*
+ *
+ * return int
+ *
+ */
 
 int employee_ordenarnombre(void* primerParametro,void* segundoParametro)
 {
@@ -342,6 +467,14 @@ int employee_ordenarnombre(void* primerParametro,void* segundoParametro)
     return retorno;
 }
 
+/** \brief compara los valores Employee.horasTrabajadas en los dos punteros
+ *
+ * \param primerParametro Employee*
+ * \param segundoParametro Employee*
+ *
+ * return int
+ *
+ */
 int employee_ordenarhoras(void* primerParametro,void* segundoParametro)
 {
     int retorno=0;
@@ -372,6 +505,14 @@ int employee_ordenarhoras(void* primerParametro,void* segundoParametro)
     return retorno;
 }
 
+/** \brief compara los valores Employee.sueldo en los dos punteros
+ *
+ * \param primerParametro Employee*
+ * \param segundoParametro Employee*
+ *
+ * return int
+ *
+ */
 int employee_ordenarsueldo(void* primerParametro,void* segundoParametro)
 {
     int retorno=0;

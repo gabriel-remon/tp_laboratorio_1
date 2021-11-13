@@ -24,7 +24,6 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
     char nombreArchivo[128];
     if(path!=NULL && pArrayListEmployee!=NULL)
     {
-        controller_exit(pArrayListEmployee);
         strcat(nombreArchivo,path);
         strcat(nombreArchivo,".csv");
         archivo=fopen(nombreArchivo,"r");
@@ -32,6 +31,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 
         if(archivo!=NULL)
         {
+        	controller_exit(pArrayListEmployee);
             fscanf(archivo,"%[^,],%[^,],%[^,],%[^\n]\n",vacio,vacio,vacio,vacio);
             parser_EmployeeFromText(archivo,pArrayListEmployee);
             retorno=1;
@@ -63,7 +63,6 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 
     if(path!=NULL && pArrayListEmployee!=NULL)
     {
-        controller_exit(pArrayListEmployee);
         strcat(nombreArchivo,path);
         strcat(nombreArchivo,".bin");
         archivo=fopen(nombreArchivo,"rb");
@@ -71,6 +70,7 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 
         if(archivo!=NULL)
         {
+        	controller_exit(pArrayListEmployee);
             parser_EmployeeFromBinary(archivo,pArrayListEmployee);
             retorno=1;
             printf("archivo cargado con exito");
@@ -488,7 +488,12 @@ guardar:
 
     return retorno;
 }
-
+/** \brief Libera el espacio en memoria de todos los elementos que apunta la linkedList
+ * 		   y luego libera el espacio dinamica que ocupa la propia linkedList
+ *
+ * \param pArrayListEmployee LinkedList*
+ *
+ */
 void controller_exit(LinkedList* pArrayListEmployee)
 {
     int cantidadElementos;
@@ -510,6 +515,11 @@ void controller_exit(LinkedList* pArrayListEmployee)
 
 }
 
+/** \brief Menu principal del programa
+ *
+ * \return int
+ *
+ */
 int menu()
 {
     int retorno;
@@ -532,6 +542,12 @@ int menu()
     utn_clear();
     return retorno;
 }
+
+/** \brief Menu de la funcion controller_sortEmployee
+ *
+ * \return int
+ *
+ */
 int menuOrdenar()
 {
     int retorno;
@@ -542,6 +558,28 @@ int menuOrdenar()
     printf("2- ORDENAR POR NOMBRE\n");
     printf("3- ORDENAR POR HORAS TRABAJADAS\n");
     printf("4- ORDENAR POR SUELDO\n");
+
+    utn_minMaxInt(&retorno,"\nIngrese la opcion deseada: ", "Error, ingrese un numero entre el 1 y el 4",1,4);
+    utn_clear();
+    return retorno;
+}
+
+/** \brief Menu de la funcion controller_editEmployee
+ *
+ * \return int
+ *
+ */
+int modificacion()
+{
+    int retorno;
+
+    printf("\n\n-----------------MODIFICAR EMPLEADOS---------------\n\n");
+
+    printf("1- MODIFICAR NOMBRE Y APELLIDO\n");
+    printf("2- MODIFICAR HORAS TRABAJADAS\n");
+    printf("3- MODIFICAR SUELDO\n\n");
+
+    printf("4-SALIR\n\n");
 
     utn_minMaxInt(&retorno,"\nIngrese la opcion deseada: ", "Error, ingrese un numero entre el 1 y el 4",1,4);
     utn_clear();

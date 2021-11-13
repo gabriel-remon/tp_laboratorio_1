@@ -18,4 +18,5 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee);
 void controller_exit(LinkedList* pArrayListEmployee);
 int menu();
 int menuOrdenar();
+int modificacion();
 

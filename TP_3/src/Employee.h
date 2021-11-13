@@ -40,4 +40,3 @@ int employee_ordenarhoras(void* primerParametro,void* segundoParametro);
 int employee_ordenarsueldo(void* primerParametro,void* segundoParametro);
 
 
-int modificacion();

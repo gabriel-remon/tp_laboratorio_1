@@ -43,7 +43,7 @@ main-build: libTP_3
 libTP_3: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -shared -o "libTP_3" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -L/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/tp_laboratorio_1/TP_3/LinkedList.a -shared -o "libTP_3" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
