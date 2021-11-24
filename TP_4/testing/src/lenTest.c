@@ -32,7 +32,7 @@
 
 void lenTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 

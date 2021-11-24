@@ -38,7 +38,7 @@ static int id[] = {11,20,3,4,9,99};
 
 void pushTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 void pushTestCase01(void)
@@ -83,7 +83,7 @@ void pushTestCase03(void)
         ll_push(list,list->size,pAux[i]);
     }
 
-    for (i=0;i < LENGTH;i++)
+    for (i=0; i < LENGTH; i++)
     {
         pElement = ll_get(list,i);
         utest_assertNotNullMsg(pElement,"\nExiste un error al intentar obtener el elemento.\n El valor de retorno no puede ser NULL\n");

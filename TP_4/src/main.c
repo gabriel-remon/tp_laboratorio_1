@@ -33,28 +33,29 @@ int main()
 {
 
     /*
-	startTesting(1);  // ll_newLinkedList
-    startTesting(2);  // ll_len
- 	startTesting(3);  // getNode - test_getNode
- 	startTesting(4);  // addNode - test_addNode
- 	startTesting(5);  // ll_add
- 	startTesting(6);  // ll_get
- 	startTesting(7);  // ll_set
- 	startTesting(8);  // ll_remove
- 	startTesting(9);  // ll_clear
- 	startTesting(10); // ll_deleteLinkedList
- 	startTesting(11); // ll_indexOf
- 	startTesting(12); // ll_isEmpty
-	startTesting(13); // ll_push
- 	startTesting(14); // ll_pop
-    startTesting(15); // ll_contains
- 	startTesting(16); // ll_containsAll
- 	startTesting(17); // ll_subList
-	startTesting(18); // ll_clone
-    startTesting(19); // ll_sort
+    	startTesting(1);  // ll_newLinkedList
+        startTesting(2);  // ll_len
+     	startTesting(3);  // getNode - test_getNode
+     	startTesting(4);  // addNode - test_addNode
+     	startTesting(5);  // ll_add
+     	startTesting(6);  // ll_get
+     	startTesting(7);  // ll_set
+     	startTesting(8);  // ll_remove
+     	startTesting(9);  // ll_clear
+     	startTesting(10); // ll_deleteLinkedList
+     	startTesting(11); // ll_indexOf
+     	startTesting(12); // ll_isEmpty
+    	startTesting(13); // ll_push
+     	startTesting(14); // ll_pop
+        startTesting(15); // ll_contains
+     	startTesting(16); // ll_containsAll
+     	startTesting(17); // ll_subList
+    	startTesting(18); // ll_clone
+        startTesting(19); // ll_sort
     */
 
     LinkedList* listaEmpleados;
+    LinkedList* listaEmpleadosCaros;
     int flagListaGuardada=0;
     int flagHayDatos=0;
     char salir='N';
@@ -130,6 +131,23 @@ int main()
             break;
 
         case 10:
+            listaEmpleadosCaros=controller_filterSueldo(listaEmpleados);
+            break;
+
+        case 11:
+            controller_subList(listaEmpleados);
+            break;
+        case 12:
+            if(listaEmpleadosCaros!=NULL)controller_compararSueldoHoras(listaEmpleados,listaEmpleadosCaros);
+            else printf("Primero precione la opcion 10");
+            break;
+
+        case 13:
+            if(listaEmpleadosCaros!=NULL)controller_buscarUnEmpleado(listaEmpleados,listaEmpleadosCaros);
+            else printf("Primero precione la opcion 10");
+            break;
+
+        case 14:
             if(!flagListaGuardada) printf("WARNING, no guardo los cambios\n\n");
             utn_confirmar(&salir,"Esta seguro que desea salir?(Y/N)","Error ingrese (Y/N)",'Y','N');
             break;
@@ -143,6 +161,8 @@ int main()
 
     controller_exit(listaEmpleados);
     ll_deleteLinkedList(listaEmpleados);
+    ll_deleteLinkedList(listaEmpleadosCaros);
+
     return 0;
 }
 

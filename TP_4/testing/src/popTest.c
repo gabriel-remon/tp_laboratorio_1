@@ -29,7 +29,7 @@
 
 void popTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 void popTestCase01(void)

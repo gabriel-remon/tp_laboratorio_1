@@ -38,7 +38,7 @@ static int id[] = {11,20,3,4,9,99};
 
 void addNodeTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 void addNodeTestCase01(void)
@@ -83,7 +83,7 @@ void addNodeTestCase03(void)
         test_addNode(list,list->size,pAux[i]);
     }
 
-    for (i=0;i < LENGTH;i++)
+    for (i=0; i < LENGTH; i++)
     {
         nodoAux = test_getNode(list,i);
         utest_assertNotNullMsg(nodoAux,"\nExiste un error al intentar obtener el nodo.\n El valor de retorno no puede ser NULL\n");
@@ -124,7 +124,7 @@ void addNodeTestCase05(void)
     utest_assertNotNullMsg(nodoAux,"\nExiste un error al intentar obtener el nodo.\n El valor de retorno no puede ser NULL\n");
     utest_assertEqualsPointerMsg(nodoAux->pElement,other,"El puntero al employee agregado en la pos 0 no corresponde\n");
 
-    for (i=0;i < LENGTH;i++)
+    for (i=0; i < LENGTH; i++)
     {
         nodoAux = test_getNode(list,i+1);
         utest_assertNotNullMsg(nodoAux,"\nExiste un error al intentar obtener el nodo.\n El valor de retorno no puede ser NULL\n");

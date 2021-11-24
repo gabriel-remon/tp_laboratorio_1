@@ -440,21 +440,24 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
 
-    if( this !=NULL && this2!=NULL)
-    {
-        returnAux=1;
-        for(int i=ll_len(this2); i>=0; i--)
-        {
-            if(ll_get(this,i)!=ll_get(this2,i))
-            {
-                returnAux=0;
-                break;
-            }
-        }
-    }
+    if (this != NULL && this2 != NULL)
+	{
+		returnAux = 1;
+		int tam = ll_len(this2);
+
+		for (int i = 0; i < tam; i++)
+		{
+			if ( ll_contains(this, ll_get(this2, i))==0 )
+			{
+				returnAux = 0;
+				break;
+			}
+		}
+	}
 
     return returnAux;
 }
+
 
 /** \brief Crea y retorna una nueva lista con los elementos indicados
  *

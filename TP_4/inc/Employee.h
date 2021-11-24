@@ -38,6 +38,8 @@ int employee_ordenarId(void* primerParametro,void* segundoParametro);
 int employee_ordenarnombre(void* primerParametro,void* segundoParametro);
 int employee_ordenarhoras(void* primerParametro,void* segundoParametro);
 int employee_ordenarsueldo(void* primerParametro,void* segundoParametro);
+int employee_filterSueldo(void* parametro);
+int employee_filterHoras(void* parametro);
 
 
 int modificacion();

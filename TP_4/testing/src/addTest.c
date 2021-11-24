@@ -56,7 +56,7 @@ static int id[] = {11,20,3,4,9,99};
 
 void addTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 void addTestCase01(void)
@@ -100,7 +100,7 @@ void addTestCase03(void)
         ll_add(list,pAux[i]);
     }
 
-    for (i=0;i < LENGTH;i++)
+    for (i=0; i < LENGTH; i++)
     {
         nodoAux = test_getNode(list,i);
         utest_assertNotNullMsg(nodoAux,"\nExiste un error al intentar obtener el nodo.\nEl valor de retorno no puede ser NULL\n");

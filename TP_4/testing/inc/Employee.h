@@ -26,7 +26,7 @@ struct
     int sector;
     int isEmpty;
 
-}typedef Employee;
+} typedef Employee;
 #endif // __EMPLOYEE
 
 int compareEmployee(void* pEmployeeA,void* pEmployeeB);

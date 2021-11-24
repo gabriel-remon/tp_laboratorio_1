@@ -128,7 +128,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno =0;
     int idIngreso;
-    Employee* empleado;
+    Employee empleado;
     int flagIdEncontrado;
     char seguir;
 
@@ -143,30 +143,31 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
             flagIdEncontrado=employee_validarId(pArrayListEmployee,idIngreso);
             if(flagIdEncontrado>=0)
             {
-                empleado=(Employee*) ll_get(pArrayListEmployee,flagIdEncontrado);
+                empleado=*((Employee*) ll_get(pArrayListEmployee,flagIdEncontrado));
                 do
                 {
                     seguir='N';
                     utn_clear();
-                    employee_printUno(empleado);
+                    employee_printUno(&empleado);
                     switch(modificacion())
                     {
                     case 1:
-                        employee_ingresoNombre(empleado);
+                        employee_ingresoNombre(&empleado);
                         break;
 
                     case 2:
-                        employee_ingresoHorasTrabajadas(empleado);
+                        employee_ingresoHorasTrabajadas(&empleado);
                         break;
 
                     case 3:
-                        employee_ingresoSueldo(empleado);
+                        employee_ingresoSueldo(&empleado);
                         break;
 
                     case 4:
                         utn_confirmar(&seguir,"Desea salir? (Y/N)","Error ingrese 'Y' o 'N'\n",'N','Y');
                         break;
                     }
+                    ll_set(pArrayListEmployee,flagIdEncontrado,&empleado);
                 }
                 while(seguir=='N');
             }
@@ -215,20 +216,20 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
             utn_clear();
             if(flagIdEncontrado>=0)
             {
-                empleado=(Employee*) ll_get(pArrayListEmployee,flagIdEncontrado);
+                empleado=(Employee*) ll_pop(pArrayListEmployee,flagIdEncontrado);
                 employee_printUno(empleado);
                 utn_confirmar(&confirmar,"Desea dar de baja este empleado? (Y/N)","Error ingrese 'Y' o 'N'\n",'N','Y');
 
                 utn_clear();
                 if(confirmar=='Y')
                 {
-                    employee_delete((Employee*)ll_get(pArrayListEmployee,flagIdEncontrado));
-                    ll_remove(pArrayListEmployee,flagIdEncontrado);
+                    employee_delete(empleado);
                     printf("Empleado dado de baja\n\n");
                     if(ll_isEmpty(pArrayListEmployee))goto salir;
                 }
                 else
                 {
+                    ll_push(pArrayListEmployee,flagIdEncontrado,empleado);
                     printf("Operacion canselada\n\n");
                 }
             }
@@ -367,7 +368,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
     int retorno=-1;
-    char nombreArchivo[128];
+    char nombreArchivo[128]= {};
     int cantidadElementos;
     Employee* empleados;
     FILE* archivo;
@@ -516,24 +517,24 @@ int menu()
 
     printf("-----------------REGISTROS DE EMPLEADOS---------------\n\n");
 
-    printf("1- CARGAR ARCHIVO (formato texto)\n");
-    printf("2- CARGAR ARCHIVO (formato binario) \n\n");
-    printf("3- ALTA DE EMPLEADOS\n");
-    printf("4- MODIFICAR UN EMPLEADO\n");
-    printf("5- BAJA DE EMPLEADOS\n");
-    printf("6- LISTA DE EMPLEADOS \n");
-    printf("7- LISTA DE EMPLEADOS (ordenados)\n\n");
-    printf("8- GUARDAR EN ARCHIVO (formato texto)\n");
-    printf("9- GUARDAR EN ARCHIVO (formato binario)\n");
-    printf("10- COMPARAR ARCHIVOS ");
-    printf("11- GUARDAR EN ARCHIVO (formato binario)\n");
-    printf("12- GUARDAR EN ARCHIVO (formato binario)\n");
-    printf("13- GUARDAR EN ARCHIVO (formato binario)\n\n\n");
+    printf("1- CARGAR ARCHIVO (formato texto)       \n");
+    printf("2- CARGAR ARCHIVO (formato binario)   \n\n");
+    printf("3- ALTA DE EMPLEADOS                    \n");
+    printf("4- MODIFICAR UN EMPLEADO                \n");
+    printf("5- BAJA DE EMPLEADOS                    \n");
+    printf("6- LISTA DE EMPLEADOS                   \n");
+    printf("7- LISTA DE EMPLEADOS (ordenados)     \n\n");
+    printf("8- GUARDAR EN ARCHIVO (formato texto)   \n");
+    printf("9- GUARDAR EN ARCHIVO (formato binario) \n");
+    printf("10- FILTRAR SUELDOS MAYORES A 40.000    \n");
+    printf("11- CREAR LISTA DEL ID 200 AL 400       \n");
+    printf("12- COMPARA EMPLEADOS CON SUELDO Y HORAS\n");
+    printf("13- PREGUNTA EMPLEADO SUELDO CARO   \n\n\n");
 
 
-    printf("10-SALIR\n\n");
+    printf("14-SALIR                             \n\n");
 
-    utn_minMaxInt(&retorno,"\nIngrese la opcion deseada: ", "Error, ingrese un numero entre el 1 y el 10",1,10);
+    utn_minMaxInt(&retorno,"\nIngrese la opcion deseada: ", "Error, ingrese un numero entre el 1 y el 10",1,14);
     utn_clear();
     return retorno;
 }
@@ -551,4 +552,158 @@ int menuOrdenar()
     utn_minMaxInt(&retorno,"\nIngrese la opcion deseada: ", "Error, ingrese un numero entre el 1 y el 4",1,4);
     utn_clear();
     return retorno;
+}
+
+LinkedList* controller_filterSueldo(LinkedList* pArrayListEmployee)
+{
+    LinkedList* listaFiltrada=NULL;
+    char archivo[128];
+
+    if(pArrayListEmployee!=NULL)
+    {
+        if(!ll_isEmpty(pArrayListEmployee))
+        {
+            listaFiltrada=ll_filter(pArrayListEmployee,employee_filterSueldo);
+            if(ll_isEmpty(listaFiltrada)==0)
+            {
+                utn_ingresoScring(archivo,"Ingrese el nombre como se guardara: ","Error\n",128);
+                controller_saveAsText(archivo,listaFiltrada);
+            }
+            else
+            {
+                printf("No se encontraron datos compatibles");
+            }
+        }
+        else
+        {
+            printf("primero deve ingresar datos");
+        }
+    }
+
+    return listaFiltrada;
+}
+
+
+int controller_subList(LinkedList* pArrayListEmployee)
+{
+    int retorno=0;
+    LinkedList* nuevalista;
+    char archivo[128];
+
+    if(pArrayListEmployee!=NULL)
+    {
+        if(ll_len(pArrayListEmployee)>400)
+        {
+            nuevalista=ll_subList(pArrayListEmployee,200,400);
+            if(nuevalista!=NULL)
+            {
+                utn_ingresoScring(archivo,"Ingrese el nombre del archivo de destino","Error\n",128);
+                controller_saveAsText(archivo,nuevalista);
+                ll_deleteLinkedList(nuevalista);
+            }
+            else
+            {
+                printf("error al crear la lista");
+            }
+
+        }
+        else
+        {
+            printf("Lista demasiado chica");
+        }
+        retorno=1;
+    }
+
+    return retorno;
+}
+
+int controller_compararSueldoHoras(LinkedList* pArrayListEmployee,LinkedList* lista2)
+{
+    int retorno=0;
+    LinkedList* lista3;
+
+    if(pArrayListEmployee!=NULL && lista2!=NULL)
+    {
+
+        if(!ll_isEmpty(pArrayListEmployee))
+        {
+            lista3=ll_filter(pArrayListEmployee,employee_filterHoras);
+            if(lista3!=NULL)
+            {
+                if(ll_containsAll(lista3,lista2))
+                {
+                    printf("Todos los empleados que cobran mas de 40.000 trabajan mas de 130 horas");
+                }
+                else
+                {
+                    printf("No todos los empleados que ganan mas tabajan mas de 130 horas");
+                }
+
+            }
+            else
+            {
+                printf("No se pudo crear la lista ");
+            }
+
+        }
+        else
+        {
+            printf("Lista vacia, ingrese al menos un empleado");
+        }
+        retorno=1;
+    }
+
+    return retorno;
+}
+
+int controller_buscarUnEmpleado(LinkedList* pArrayListEmployee,LinkedList* lista2)
+{
+
+    int retorno =0;
+    int idIngreso;
+    Employee* empleado;
+    int flagIdEncontrado;
+    char seguir;
+
+    if(pArrayListEmployee!=NULL && !ll_isEmpty(pArrayListEmployee) && lista2!=NULL)
+    {
+        do
+        {
+            flagIdEncontrado=0;
+            controller_ListEmployee(pArrayListEmployee);
+            utn_getInt(&idIngreso,"\nIngrese una id de un empleado","Error, ingrese un numero valido");
+            flagIdEncontrado=employee_validarId(pArrayListEmployee,idIngreso);
+            utn_clear();
+            if(flagIdEncontrado>=0)
+            {
+                empleado=(Employee*) ll_get(pArrayListEmployee,flagIdEncontrado);
+                employee_printUno(empleado);
+                controller_ListEmployee(lista2);
+
+                if(ll_contains(lista2,empleado))
+                {
+                    printf("\nEl empleado esta dentro del grupo Caro");
+                }
+                else
+                {
+                    printf("\nEl empleado tiene un sueldo economico");
+                }
+                printf("\n\n");
+            }
+            else
+            {
+                printf("Id ingresado no encontrado\n\n");
+            }
+
+            utn_confirmar(&seguir,"Desea ingresar otro ID? (Y/N)","Error ingrese 'Y' o 'N'\n",'N','Y');
+        }
+        while(seguir=='Y');
+    }
+    else
+    {
+        printf("Lista vacia, Primero de de alta un empleado");
+    }
+
+    return retorno;
+
 }

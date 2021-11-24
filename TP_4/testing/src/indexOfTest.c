@@ -29,7 +29,7 @@
 
 void indexOfTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 void indexOfTestCase01(void)

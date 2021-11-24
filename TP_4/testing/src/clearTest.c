@@ -29,7 +29,7 @@
 
 void clearTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 void clearTestCase01(void)

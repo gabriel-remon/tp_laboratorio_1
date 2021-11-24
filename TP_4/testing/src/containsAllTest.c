@@ -39,7 +39,7 @@ static int id[] = {11,20,3,4,9,99};
 
 void containsAllTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 
@@ -74,7 +74,7 @@ void containsAllTestCase02(void)
     ll_remove(list,0);
 
     r = ll_containsAll(list,pOtherList);
-    utest_assertEqualsIntMsg(r, 0 ,"Error en el valor de retorno <containsAll> si la lista2 no esta contenida se debe retornar 0");
+    utest_assertEqualsIntMsg(r, 0,"Error en el valor de retorno <containsAll> si la lista2 no esta contenida se debe retornar 0");
 
 
 }
@@ -97,7 +97,7 @@ void containsAllTestCase03(void)
     }
 
     r = ll_containsAll(list,pOtherList);
-    utest_assertEqualsIntMsg(r, 1 ,"Error en el valor de retorno <containsAll> si la lista2 no esta contenida se debe retornar 0");
+    utest_assertEqualsIntMsg(r, 1,"Error en el valor de retorno <containsAll> si la lista2 no esta contenida se debe retornar 0");
 
 
 }

@@ -29,7 +29,7 @@
 
 void deleteLinkedListTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 void deleteLinkedListTestCase01(void)

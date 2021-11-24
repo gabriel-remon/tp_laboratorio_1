@@ -39,7 +39,7 @@ static int id[] = {11,20,3,4,9,99};
 
 void subListTestSetup(void)
 {
-	utest_print("Setup...\r\n");
+    utest_print("Setup...\r\n");
 }
 
 

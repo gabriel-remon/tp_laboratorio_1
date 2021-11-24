@@ -401,4 +401,28 @@ int employee_ordenarsueldo(void* primerParametro,void* segundoParametro)
     return retorno;
 }
 
+int employee_filterSueldo(void* parametro)
+{
+    int retorno=0;
+    Employee* empleado=(Employee*) parametro;
 
+    if(empleado!=NULL && empleado->sueldo>40000)
+    {
+        retorno=1;
+    }
+
+    return retorno;
+}
+
+int employee_filterHoras(void* parametro)
+{
+    int retorno=0;
+    Employee* empleado=(Employee*) parametro;
+
+    if(empleado!=NULL && empleado->horasTrabajadas>130)
+    {
+        retorno=1;
+    }
+
+    return retorno;
+}
