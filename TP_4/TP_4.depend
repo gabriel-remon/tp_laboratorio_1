@@ -1,0 +1,294 @@
+# depslib dependency file v1.0
+1637701309 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/src/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../testing/inc/main_test.h"
+	"../inc/LinkedList.h"
+	"../inc/utn.h"
+	"../inc/Employee.h"
+	"../inc/parser.h"
+	"../inc/Controller.h"
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/main_test.h
+
+1637706591 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/inc/LinkedList.h
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/addNodeTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/utest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/Employee.h
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/addTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/clearTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/cloneTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/containsAllTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/containsTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/deleteLinkedListTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/Employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/getNodeTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/getTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/indexOfTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/isEmptyTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/lenTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560541120 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/main_test.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	"../inc/newTest.h"
+	"../inc/addTest.h"
+	"../inc/getNodeTest.h"
+	"../inc/addNodeTest.h"
+	"../inc/deleteLinkedListTest.h"
+	"../inc/lenTest.h"
+	"../inc/getTest.h"
+	"../inc/containsTest.h"
+	"../inc/setTest.h"
+	"../inc/removeTest.h"
+	"../inc/clearTest.h"
+	"../inc/cloneTest.h"
+	"../inc/pushTest.h"
+	"../inc/indexOfTest.h"
+	"../inc/isEmptyTest.h"
+	"../inc/popTest.h"
+	"../inc/subListTest.h"
+	"../inc/containsAllTest.h"
+	"../inc/sortTest.h"
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/newTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/addTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/getNodeTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/addNodeTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/deleteLinkedListTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/lenTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/getTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/containsTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/setTest.h
+
+1560541120 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/removeTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/clearTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/cloneTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/pushTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/indexOfTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/isEmptyTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/popTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/subListTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/containsAllTest.h
+
+1560475730 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/inc/sortTest.h
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/newTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/popTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/pushTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561991585 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/removeTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/setTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/sortTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/src/subListTest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1560475730 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/testing/utest.c
+	"utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1637695191 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/src/LinkedList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/LinkedList.h"
+
+1636763831 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/inc/utn.h
+
+1636751352 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/inc/Employee.h
+	"LinkedList.h"
+
+1636680932 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/inc/parser.h
+	"LinkedList.h"
+
+1636762687 /home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/inc/Controller.h
+	"LinkedList.h"
+
+1637701146 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/src/Employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/LinkedList.h"
+	"../inc/Employee.h"
+	"../inc/utn.h"
+
+1637701146 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/src/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"../inc/LinkedList.h"
+	"../inc/Employee.h"
+
+1637701146 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/src/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<string.h>
+	<ctype.h>
+	"../inc/utn.h"
+
+1637706591 source:/home/linux/Escritorio/facultad/programacion/primerCuatrimestre/ejercicios/TP_4/src/Controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/Controller.h"
+	"../inc/LinkedList.h"
+	"../inc/Employee.h"
+	"../inc/parser.h"
+	"../inc/utn.h"
+
